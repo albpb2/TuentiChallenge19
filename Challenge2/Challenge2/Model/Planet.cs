@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Challenge2.Model
 {
@@ -13,5 +14,15 @@ namespace Challenge2.Model
         public string Name { get; set; }
 
         public List<Planet> ReachablePlanets { get; set; }
+
+        public int CountPaths()
+        {
+            if (!ReachablePlanets.Any())
+            {
+                return 1;
+            }
+
+            return ReachablePlanets.Sum(p => p.CountPaths());
+        }
     }
 }
