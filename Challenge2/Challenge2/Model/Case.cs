@@ -4,6 +4,6 @@ namespace Challenge2.Model
 {
     public class Case
     {
-        public List<Planet> Planets { get; set; }
+        public Planet SourcePlanet { get; set; }
     }
 }

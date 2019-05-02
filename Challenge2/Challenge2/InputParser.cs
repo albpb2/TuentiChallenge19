@@ -26,9 +26,10 @@ namespace Challenge2
                     ParsePlanetData(lines[firstCaseLine + j], firstCaseLine + j, planets);
                 }
 
+                const string SourcePlanetName = "Galactica";
                 cases.Add(new Case
                 {
-                    Planets = planets.Values.ToList()
+                    SourcePlanet = planets[SourcePlanetName]
                 });
 
                 firstCaseLine += numberOfPlanets + 1;
