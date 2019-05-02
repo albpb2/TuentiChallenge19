@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Challenge1": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\alber\\Downloads\\testinput.txt"
+    }
+  }
+}
