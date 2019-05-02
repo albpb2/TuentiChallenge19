@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Challenge3.Model
+﻿namespace Challenge3.Model
 {
     public class Coordinate
     {
