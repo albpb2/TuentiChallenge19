@@ -4,6 +4,10 @@ namespace Challenge3.Model.Paper
 {
     public class RightFoldedPaper : Paper
     {
+        public RightFoldedPaper(Paper paper) : base(paper)
+        {
+        }
+
         protected override void Unfold()
         {
             Width *= 2;
@@ -16,6 +20,8 @@ namespace Challenge3.Model.Paper
                 var reflectedPunch = new Coordinate(lastColumn - punch.X, punch.Y);
                 reflectedPunches.Add(reflectedPunch);
             }
+
+            Punches.AddRange(reflectedPunches);
         }
     }
 }

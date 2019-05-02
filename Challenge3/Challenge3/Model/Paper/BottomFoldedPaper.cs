@@ -4,6 +4,10 @@ namespace Challenge3.Model.Paper
 {
     public class BottomFoldedPaper : Paper
     {
+        public BottomFoldedPaper(Paper paper) : base(paper)
+        {
+        }
+
         protected override void Unfold()
         {
             Height *= 2;
@@ -16,6 +20,8 @@ namespace Challenge3.Model.Paper
                 var reflectedPunch = new Coordinate(punch.X, lastRow - punch.Y);
                 reflectedPunches.Add(reflectedPunch);
             }
+
+            Punches.AddRange(reflectedPunches);
         }
     }
 }

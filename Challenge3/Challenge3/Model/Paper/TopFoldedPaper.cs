@@ -4,6 +4,10 @@ namespace Challenge3.Model.Paper
 {
     public class TopFoldedPaper : Paper
     {
+        public TopFoldedPaper(Paper paper) : base(paper)
+        {
+        }
+
         protected override void Unfold()
         {
             var newHeight = Height * 2;
@@ -18,6 +22,8 @@ namespace Challenge3.Model.Paper
             }
 
             Height = newHeight;
+
+            Punches.AddRange(reflectedPunches);
         }
     }
 }

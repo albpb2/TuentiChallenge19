@@ -6,6 +6,18 @@ namespace Challenge3.Model.Paper
 {
     public class Paper
     {
+        public Paper()
+        {
+        }
+
+        public Paper(Paper paper)
+        {
+            Width = paper.Width;
+            Height = paper.Height;
+            Folds = paper.Folds;
+            Punches = paper.Punches;
+        }
+
         public int Width { get; set; }
 
         public int Height { get; set; }
@@ -18,34 +30,13 @@ namespace Challenge3.Model.Paper
 
         public void UnfoldOnce()
         {
-            if (!IsFolded)
-            {
-                return;
-            }
+            Unfold();
 
-            var state = _statePerFoldDirection[Folds.First()](this);
-            state.Unfold();
             Folds.RemoveAt(0);
-        }
-
-        public void UnfoldTotally()
-        {
-            while (IsFolded)
-            {
-                UnfoldOnce();
-            }
         }
 
         protected virtual void Unfold()
         {
         }
-
-        private Dictionary<Fold, Func<Paper, Paper>> _statePerFoldDirection = new Dictionary<Fold, Func<Paper, Paper>>
-        {
-            { Fold.Top, (p) => (TopFoldedPaper)p },
-            { Fold.Bottom, (p) => (BottomFoldedPaper)p },
-            { Fold.Left, (p) => (LeftFoldedPaper)p },
-            { Fold.Right, (p) => (RightFoldedPaper)p }
-        };
     }
 }

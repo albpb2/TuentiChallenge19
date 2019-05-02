@@ -4,6 +4,10 @@ namespace Challenge3.Model.Paper
 {
     public class LeftFoldedPaper : Paper
     {
+        public LeftFoldedPaper(Paper paper) : base(paper)
+        {
+        }
+
         protected override void Unfold()
         {
             var newWidth = Width * 2;
@@ -18,6 +22,8 @@ namespace Challenge3.Model.Paper
             }
 
             Width = newWidth;
+
+            Punches.AddRange(reflectedPunches);
         }
     }
 }
