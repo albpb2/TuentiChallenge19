@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Challenge4
 {
-    public class CandiesCalculator
+    public class CandiesCalculator : ICandiesCalculator
     {
         public (int candies, int people) CalculateAverageCandies(PartyList partyLists)
         {
