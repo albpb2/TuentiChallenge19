@@ -27,7 +27,7 @@ namespace Challenge4
 
         private static bool IsValidMultipleForGroup(int multiple, int candies, int repetitions)
         {
-            return (multiple * repetitions) % 2 == 0;
+            return (multiple * repetitions) % candies == 0;
         }
     }
 }
