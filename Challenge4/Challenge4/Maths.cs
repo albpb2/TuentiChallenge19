@@ -2,9 +2,9 @@
 {
     public static class Maths
     {
-        public static int CalculateLeastCommonMultiple(int a, int b)
+        public static long CalculateLeastCommonMultiple(long a, long b)
         {
-            int num1, num2;
+            long num1, num2;
             if (a > b)
             {
                 num1 = a; num2 = b;
@@ -24,7 +24,7 @@
             return num1 * num2;
         }
 
-        public static int CalculateGreatestCommonDivisor(int a, int b)
+        public static long CalculateGreatestCommonDivisor(long a, long b)
         {
             while (a != 0 && b != 0)
             {
@@ -37,7 +37,7 @@
             return a == 0 ? b : a;
         }
 
-        public static (int, int) ReduceFraction(int numerator, int denominator)
+        public static (long, long) ReduceFraction(long numerator, long denominator)
         {
             var greatestCommonDivisor = Maths.CalculateGreatestCommonDivisor(numerator, denominator);
 

@@ -4,6 +4,6 @@ namespace Challenge4
 {
     public interface IOutputWriter
     {
-        void WriteOutput(List<(int, int)> candiesAverages, string outputPath);
+        void WriteOutput(List<(long, long)> candiesAverages, string outputPath);
     }
 }

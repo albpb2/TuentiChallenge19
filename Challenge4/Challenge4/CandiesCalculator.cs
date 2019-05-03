@@ -5,22 +5,21 @@ namespace Challenge4
 {
     public class CandiesCalculator : ICandiesCalculator
     {
-        public (int candies, int people) CalculateAverageCandies(PartyList partyLists)
+        public (long candies, long people) CalculateAverageCandies(PartyList partyLists)
         {
             var groups = partyLists.List.GroupBy(element => element).ToDictionary(g => g.Key, g => g.Count());
 
             var highestGroup = groups.Keys.Max();
 
-            var leastCommonMultiple = Maths.CalculateLeastCommonMultiple(highestGroup, groups[highestGroup]);
-            var listRepetitions = leastCommonMultiple;
-            
-            while (!groups.All(g => IsValidMultipleForGroup(listRepetitions, g.Key, g.Value)))
+            long listRepetitions = 1;
+
+            for (var i = 0; i < groups.Count; i++)
             {
-                listRepetitions = listRepetitions + leastCommonMultiple;
+                listRepetitions = Maths.CalculateLeastCommonMultiple(listRepetitions, groups.Keys.ToList()[i]); 
             }
 
-            var candies = groups.Sum(g => listRepetitions * g.Value);
-            var people = groups.Sum(g => (listRepetitions * g.Value) / g.Key);
+            long candies = groups.Sum(g => listRepetitions * g.Value);
+            long people = groups.Sum(g => (listRepetitions * g.Value) / g.Key);
 
             return Maths.ReduceFraction(candies, people);
         }

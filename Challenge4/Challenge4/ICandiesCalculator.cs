@@ -4,6 +4,6 @@ namespace Challenge4
 {
     public interface ICandiesCalculator
     {
-        (int candies, int people) CalculateAverageCandies(PartyList partyLists);
+        (long candies, long people) CalculateAverageCandies(PartyList partyLists);
     }
 }
